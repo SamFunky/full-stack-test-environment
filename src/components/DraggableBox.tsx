@@ -19,12 +19,17 @@ export default function DraggableBox({
     defaultPosition.y,
   ]);
   const [loaded, setLoaded] = useState(false);
+  type BoxPosition = {
+    id: string;
+    x: number;
+    y: number;
+  }
 
   useLayoutEffect(() => {
     fetch(`/api/box-positions`)
       .then((res) => res.json())
-      .then((positions) => {
-        const found = positions.find((p: any) => p.id === id);
+      .then((positions: BoxPosition[]) => {
+        const found = positions.find((p: BoxPosition) => p.id === id);
         if (found) setPos([found.x, found.y]);
         setLoaded(true);
       });

@@ -3,8 +3,11 @@
 import { useEffect, useState } from 'react';
 
 export default function UsersPage() {
-	const [users, setUsers] = useState([]);
-
+	type User = {
+		id: string | number;
+		name: string;
+	}
+	const [users, setUsers] = useState<User[]>([]);
 	useEffect(() => {
 		const fetchUsers = async () => {
 			try {
@@ -29,7 +32,7 @@ export default function UsersPage() {
 				<p>No users found.</p>
 			) : (
 				<ul className="list-disc list-inside">
-					{users.map((user: any) => (
+					{users.map((user: User) => (
 						<li key={user.id}>{user.name}</li>
 					))}
 				</ul>
