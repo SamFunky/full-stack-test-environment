@@ -1,5 +1,6 @@
 import Link from "next/link";
 import DraggableBox from "@/components/DraggableBox";
+import WeatherBox from "@/components/WeatherDraggableBox";
 
 export default function Page1() {
   return (
@@ -39,8 +40,7 @@ export default function Page1() {
         defaultPosition={{ x: 400, y: 300 }}
         className="absolute bg-gray-800 rounded-lg p-4 text-white shadow w-80 h-40 cursor-move"
       >
-        <h2 className="text-xl font-semibold mb-2">Weather</h2>
-        <p>Weather data goes here...</p>
+        <WeatherBox />
       </DraggableBox>
     </div>
   );
