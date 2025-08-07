@@ -19,3 +19,10 @@ model User {
   email     String   @unique
   createdAt DateTime @default(now())
 }
+
+model BoxPosition {
+  id        String @id
+  x         Int
+  y         Int
+  updatedAt DateTime @updatedAt
+}
