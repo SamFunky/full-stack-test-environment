@@ -1,6 +1,8 @@
+"use client";
 import Link from "next/link";
 import DraggableBox from "@/components/DraggableBox";
-import WeatherBox from "@/components/WeatherDraggableBox";
+import WeatherBox from "@/components/Weather";
+import Stocks from "@/components/Stocks";
 
 export default function Page1() {
   return (
@@ -28,16 +30,22 @@ export default function Page1() {
       </main>
       {/* Draggable Boxes */}
       <DraggableBox
-        id="stock"
+        id="sp500"
         defaultPosition={{ x: 40, y: 300 }}
         className="absolute bg-gray-800 rounded-lg p-4 text-white shadow w-80 h-40 cursor-move"
       >
-        <h2 className="text-xl font-semibold mb-2">Stock Market</h2>
-        <p>Stock data goes here...</p>
+        <Stocks type="sp500" />
+      </DraggableBox>
+      <DraggableBox
+        id="dowjones"
+        defaultPosition={{ x: 400, y: 300 }}
+        className="absolute bg-gray-800 rounded-lg p-4 text-white shadow w-80 h-40 cursor-move"
+      >
+        <Stocks type="dowjones" />
       </DraggableBox>
       <DraggableBox
         id="weather"
-        defaultPosition={{ x: 400, y: 300 }}
+        defaultPosition={{ x: 800, y: 300 }}
         className="absolute bg-gray-800 rounded-lg p-4 text-white shadow w-80 h-40 cursor-move"
       >
         <WeatherBox />
@@ -45,4 +53,3 @@ export default function Page1() {
     </div>
   );
 }
-
