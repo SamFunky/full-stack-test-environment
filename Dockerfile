@@ -20,6 +20,7 @@ RUN npx prisma generate
 RUN npm run build
 
 # Expose the port Next.js will run on (typically 3000)
+EXPOSE 8080
 EXPOSE 3000
 
 # Start the app
